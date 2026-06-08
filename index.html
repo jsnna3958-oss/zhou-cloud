@@ -1,91 +1,120 @@
-
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>周晨阳私密云平台</title>
+<title>私人相册</title>
 
 <style>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
 body{
+    margin:0;
+    font-family:"Microsoft YaHei";
+    background:#f5f5f5;
+}
 
-    background:#ffffff;
-
+.login{
     height:100vh;
-
     display:flex;
-
+    flex-direction:column;
     justify-content:center;
-
     align-items:center;
+}
 
-    text-align:center;
+input{
+    width:220px;
+    padding:12px;
+    margin:10px;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
 
-    font-family:
-    "PingFang SC",
-    "Microsoft YaHei",
-    sans-serif;
+button{
+    padding:12px 24px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
 
+#album{
+    display:none;
     padding:20px;
-
 }
 
-.container{
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:15px;
+}
+
+.gallery img{
     width:100%;
-}
-
-.title{
-
-    font-size:clamp(28px,6vw,72px);
-
-    color:#222;
-
-    font-weight:300;
-
-    line-height:1.5;
-
-}
-
-.sub{
-
-    margin-top:20px;
-
-    color:#999;
-
-    font-size:clamp(12px,2vw,18px);
-
-    letter-spacing:2px;
-
+    border-radius:12px;
 }
 
 </style>
-
 </head>
 
 <body>
 
-<div class="container">
+<div class="login" id="login">
 
-<div class="title">
-周晨阳私密云平台搭建中......
+<h2>私人相册</h2>
+
+<input
+id="pwd"
+type="password"
+placeholder="请输入密码">
+
+<button onclick="checkPwd()">
+进入
+</button>
+
+<p id="msg"></p>
+
 </div>
 
-<div class="sub">
-SYSTEM UNDER CONSTRUCTION
+<div id="album">
+
+<h1>欢迎进入私人相册</h1>
+
+<div class="gallery">
+
+<img src="1.jpg">
+
+<img src="2.jpg">
+
+<img src="3.jpg">
+
+<img src="4.jpg">
+
 </div>
 
 </div>
+
+<script>
+
+function checkPwd(){
+
+let pwd =
+document.getElementById("pwd").value;
+
+if(pwd==="123123"){
+
+document.getElementById("login").style.display="none";
+
+document.getElementById("album").style.display="block";
+
+}else{
+
+document.getElementById("msg").innerHTML="密码错误";
+
+}
+
+}
+
+</script>
 
 </body>
 </html>
